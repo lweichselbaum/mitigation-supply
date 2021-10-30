@@ -54,13 +54,13 @@ for bucket in use_counters.values():
         if item["date"] not in data: data[item["date"]] = {}
         data[item["date"]][bucket] = round(item["day_percentage"] * 100, 5)
 
-beginning = date.fromisoformat(sorted(days)[-90])
+beginning = date.fromisoformat(sorted(days)[-270])
 end = date.fromisoformat(sorted(days)[-1])
 use_counter_days = []
 while beginning <= end:
     use_counter_days.append(beginning.isoformat())
     beginning += timedelta(days=1)
-use_counter_days = sorted(use_counter_days)[-90:]
+use_counter_days = sorted(use_counter_days)[-270:]
 
 use_counter_buckets = {}
 for bucket in use_counters.values():
